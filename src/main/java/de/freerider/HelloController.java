@@ -1,4 +1,4 @@
-package com.freerider.berlin.felgentreff.se2springfreerider;
+package de.freerider;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

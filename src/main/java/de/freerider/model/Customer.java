@@ -1,18 +1,17 @@
 package de.freerider.model;
 
 public class Customer {
-	
+
 	private String id;
 	private String lastName;
 	private String firstName;
 	private String contact;
 	private Status status;
-	
+
 	public Customer(String lastName, String firstName, String contact) {
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.contact = contact;
-		
+		this.lastName = lastName != null ? lastName : "";
+		this.firstName = firstName != null ? firstName : "";
+		this.contact = contact != null ? contact : "";
 		this.id = null;
 		this.status = Status.New;
 	}
@@ -22,7 +21,9 @@ public class Customer {
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		if (this.id == null) {
+			this.id = id;
+		}
 	}
 
 	public String getLastName() {
@@ -30,7 +31,7 @@ public class Customer {
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastName = lastName != null ? lastName : "";
 	}
 
 	public String getFirstName() {
@@ -38,7 +39,7 @@ public class Customer {
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName = firstName != null ? firstName : "";
 	}
 
 	public String getContact() {
@@ -46,7 +47,7 @@ public class Customer {
 	}
 
 	public void setContact(String contact) {
-		this.contact = contact;
+		this.contact = contact != null ? contact : "";
 	}
 
 	public Status getStatus() {
