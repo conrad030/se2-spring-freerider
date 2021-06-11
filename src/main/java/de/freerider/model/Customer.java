@@ -21,7 +21,7 @@ public class Customer {
 	}
 
 	public void setId(String id) {
-		if (this.id == null) {
+		if (this.id == null || id == null) {
 			this.id = id;
 		}
 	}
