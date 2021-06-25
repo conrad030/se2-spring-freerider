@@ -30,8 +30,9 @@ public class CustomerRepository implements CrudRepository<Customer, String> {
 					}
 				}
 			} else {
+				S previousEntity = (S) this.entities.get(entity.getId());
 				this.entities.put(entity.getId(), entity);
-				return entity;
+				return previousEntity != null ? previousEntity : entity;
 			}
 		} else {
 			throw new IllegalArgumentException();
@@ -40,6 +41,9 @@ public class CustomerRepository implements CrudRepository<Customer, String> {
 
 	@Override
 	public <S extends Customer> Iterable<S> saveAll(Iterable<S> entities) throws IllegalArgumentException {
+		if (entities == null) {
+			throw new IllegalArgumentException();
+		}
 		for (Customer entity: entities) {
 			entity = this.save(entity);
 		}
@@ -78,6 +82,9 @@ public class CustomerRepository implements CrudRepository<Customer, String> {
 
 	@Override
 	public Iterable<Customer> findAllById(Iterable<String> ids) throws IllegalArgumentException {
+		if (ids == null) {
+			throw new IllegalArgumentException();
+		}
 		ArrayList<Customer> returnValues = new ArrayList<>();
 		for (String id: ids) {
 			if (this.existsById(id)) {
@@ -112,6 +119,9 @@ public class CustomerRepository implements CrudRepository<Customer, String> {
 
 	@Override
 	public void deleteAllById(Iterable<? extends String> ids) throws IllegalArgumentException {
+		if (ids == null) {
+			throw new IllegalArgumentException();
+		}
 		for (String id: ids) {
 			this.deleteById(id);
 		}
@@ -119,6 +129,9 @@ public class CustomerRepository implements CrudRepository<Customer, String> {
 
 	@Override
 	public void deleteAll(Iterable<? extends Customer> entities) throws IllegalArgumentException {
+		if (entities == null) {
+			throw new IllegalArgumentException();
+		}
 		for (Customer entity: entities) {
 			this.delete(entity);
 		}
