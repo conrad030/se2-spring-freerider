@@ -7,8 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import de.freerider.model.Customer;
-import de.freerider.model.Status;
+import de.freerider.datamodel.Customer;
+import de.freerider.datamodel.Customer.Status;
 
 @SpringBootTest
 public class CustomerTests {
@@ -106,8 +106,8 @@ public class CustomerTests {
 	
 	@Test
 	public void testSetStatus() {
-		this.mats.setStatus(Status.inRegistration);
-		assertEquals(this.mats.getStatus(), Status.inRegistration);
+		this.mats.setStatus(Status.InRegistration);
+		assertEquals(this.mats.getStatus(), Status.InRegistration);
 		this.mats.setStatus(Status.Active);
 		assertEquals(this.mats.getStatus(), Status.Active);
 		this.mats.setStatus(Status.Suspended);

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import de.freerider.model.Customer;
+import de.freerider.datamodel.Customer;
 
 @SpringBootTest
 public class CustomerRepositoryTests {

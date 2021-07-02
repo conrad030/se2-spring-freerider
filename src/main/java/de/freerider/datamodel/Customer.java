@@ -1,4 +1,4 @@
-package de.freerider.model;
+package de.freerider.datamodel;
 
 public class Customer {
 
@@ -7,6 +7,11 @@ public class Customer {
 	private String firstName;
 	private String contact;
 	private Status status;
+	
+	public enum Status {
+
+		New, InRegistration, Active, Suspended, Deleted;
+	}
 
 	public Customer(String lastName, String firstName, String contact) {
 		this.lastName = lastName != null ? lastName : "";
